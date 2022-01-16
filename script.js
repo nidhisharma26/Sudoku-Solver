@@ -32,17 +32,17 @@ function setTemp(board, temp) {
 }
 
 
-function setColor(temp) {
+// function setColor(temp) {
 
-    for (var i = 0; i < 9; i++) {
-        for (var j = 0; j < 9; j++) {
-            if (temp[i][j] == true) {
-                arr[i][j].style.color = "#DC3545";
-            }
+//     for (var i = 0; i < 9; i++) {
+//         for (var j = 0; j < 9; j++) {
+//             if (temp[i][j] == true) {
+//                 arr[i][j].style.color = "#DC3545";
+//             }
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 function resetColor() {
 
@@ -88,15 +88,13 @@ button.onclick = function () {
 
         board = response.board
         setTemp(board, temp)
-        setColor(temp)
+        //setColor(temp)
         changeBoard(board)
     }
     xhrRequest.open('get', 'https://sugoku.herokuapp.com/board?difficulty=easy')
-    //we can change the difficulty of the puzzle the allowed values of difficulty are easy, medium, hard and random
     xhrRequest.send()
 }
 
-//to be completed by student
 function isPossible(board, sr, sc, val) {
     for (var row = 0; row < 9; row++) {
         if (board[row][sc] == val) {
@@ -124,7 +122,6 @@ function isPossible(board, sr, sc, val) {
 
 }
 
-//to be completed by student
 function solveSudokuHelper(board, sr, sc) {
     if (sr == 9) {
         changeBoard(board);
